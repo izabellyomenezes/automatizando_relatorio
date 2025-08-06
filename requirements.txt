@@ -3,3 +3,4 @@ openpyxl
 yagmail
 tk
 pyinstaller
+pywin32

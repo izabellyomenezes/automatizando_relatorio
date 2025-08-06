@@ -1,6 +1,6 @@
 from tkinter import Tk, filedialog, messagebox, simpledialog
 from excel_utils import div_gerente, load_email
-from email_utils import send_email
+from relatorio_utils import send_email
 
 def interface():
     root = Tk()
@@ -13,13 +13,11 @@ def interface():
         return
     
     endereco_email = load_email(arquivo)
-    email = simpledialog.askstring('Login', 'Digite seu e-mail:')
-    senha = simpledialog.askstring('Senha', 'Digite sua senha:', show='*')
     assinatura = simpledialog.askstring('Assinatura', 'Digite seu nome para assinar o e-mail')
 
     try:
         arquivo_gerado = div_gerente(arquivo)
-        send_email(arquivo_gerado, endereco_email, email, senha, assinatura)
+        send_email(arquivo_gerado, endereco_email, assinatura)
         messagebox.showinfo('Sucesso', 'Arquivos gerados e e-mails enviados com sucesso')
     except Exception as e:
         messagebox.showerror('Erro', str(e))

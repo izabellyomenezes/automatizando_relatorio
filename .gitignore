@@ -1,4 +1,5 @@
 .env
+email_utils.py
 *.pyc
 __pycache__/
 dist/
